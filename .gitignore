@@ -1,0 +1,80 @@
+
+# Created by https://www.gitignore.io/api/elixir,emacs,erlang
+# Edit at https://www.gitignore.io/?templates=elixir,emacs,erlang
+
+### Elixir ###
+/_build
+/cover
+/deps
+/doc
+/.fetch
+erl_crash.dump
+*.ez
+*.beam
+/config/*.secret.exs
+.elixir_ls/
+
+### Elixir Patch ###
+
+### Emacs ###
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+dist/
+
+# Flycheck
+flycheck_*.el
+
+# server auth directory
+/server/
+
+# projectiles files
+.projectile
+
+# directory configuration
+.dir-locals.el
+
+# network security
+/network-security.data
+
+
+### Erlang ###
+.eunit
+deps
+*.o
+*.plt
+ebin/*.beam
+rel/example_project
+.concrete/DEV_MODE
+.rebar
+
+# End of https://www.gitignore.io/api/elixir,emacs,erlang
