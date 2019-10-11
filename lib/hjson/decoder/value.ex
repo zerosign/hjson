@@ -1,7 +1,9 @@
-defmodule Hjson.Value do
-  null = utf8_string("null")
-  false_ = utf8_string("false")
-  true_ = utf8_string("true")
+defmodule Hjson.Decoder.Value do
+  import NimbleParsec
+
+  null = string("null")
+  false_ = string("false")
+  true_ = string("true")
 
   parser =
     choice([

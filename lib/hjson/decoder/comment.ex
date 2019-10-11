@@ -1,13 +1,13 @@
-defmodule Hjson.Comment do
+defmodule Hjson.Decoder.Comment do
   import NimbleParsec
 
   single_line =
-    utf8_string(["#", "//"])
-    |> repeat(utf_char({:not, '\n'}))
+    utf8_char(["#", "//"])
+    |> repeat(utf8_char({:not, '\n'}))
 
   multiline =
     string("/*")
-    |> repeat(utf_char({:not, "*/"}))
+    |> repeat(utf8_char({:not, "*/"}))
     |> string("*/")
 
   parser =

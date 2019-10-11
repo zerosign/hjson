@@ -1,4 +1,4 @@
-defmodule Hjson.Array do
+defmodule Hjson.Decoder.Array do
   import NimbleParsec
 
   multiple_value =
@@ -12,10 +12,10 @@ defmodule Hjson.Array do
     |> optional(multiple_value)
     |> optional(utf8_char(','))
 
-  parser = empty()
-  |> utf8_char('[')
-  |> optional(inner)
-  |> utf8_char(']')
+  parser =
+    utf8_char('[')
+    |> optional(inner)
+    |> utf8_char(']')
 
   defparsec :parser, parser, inline: true, debug: true
 end

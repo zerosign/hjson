@@ -1,4 +1,4 @@
-defmodule Hjson.Number do
+defmodule Hjson.Decoder.Number do
   import NimbleParsec
 
   non_zero_digit =
@@ -11,7 +11,7 @@ defmodule Hjson.Number do
     utf8_char([?0..?9])
 
   non_zero_integer =
-    repeat(concat([non_zero_digit, optional(repeat(digit))]))
+    repeat(concat(non_zero_digit, optional(repeat(digit))))
 
   fraction =
     utf8_char('.')
@@ -23,11 +23,16 @@ defmodule Hjson.Number do
   exponent =
     utf8_char([?e, ?E])
 
+  signed_exponent =
+    exponent
+    |> optional(signed)
+    |> repeat(digit)
+
   parser =
     optional(utf8_char('-'))
     |> choice([zero, non_zero_integer])
     |> optional(fraction)
-    |> optional(concat([exponent, optional(signed), repeat(digit)]))
+    |> optional(signed_exponent)
 
   defparsec :parser, parser, inline: true, debug: true
 end

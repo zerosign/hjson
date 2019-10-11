@@ -1,4 +1,4 @@
-defmodule Hjson.Member do
+defmodule Hjson.Decoder.Member do
   import NimbleParsec
 
   quote_symbols = [',', ':', '[', ']', '{', '}']
@@ -12,7 +12,7 @@ defmodule Hjson.Member do
 end
 
 
-defmodule Hjson.Object do
+defmodule Hjson.Decoder.Object do
   import NimbleParsec
 
   multi_objects = repeat(
